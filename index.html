@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экскурсии по Огненной Земле - MAGELLANIA Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #2d3748;
+            background: #fafafa;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header-content h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: -80px auto 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 6rem 0 3rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Tours Grid - В стиле Сила территории */
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+        }
+
+        .tour-image {
+            width: 100%;
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .tour-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+
+        .tour-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.95);
+            color: #2d3748;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tour-content {
+            padding: 1.5rem;
+        }
+
+        .tour-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .tour-description {
+            color: #718096;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tour-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature {
+            background: #f7fafc;
+            color: #4a5568;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tour-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tour-duration {
+            color: #718096;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tour-cta {
+            color: #3182ce;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .tour-cta:hover {
+            color: #2c5aa0;
+        }
+
+        /* Modal - В стиле Сила территории */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            max-height: 85vh;
+            margin: 2rem;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.3);
+            transform: scale(0.9) translateY(20px);
+            animation: modalSlideIn 0.3s ease forwards;
+        }
+
+        @keyframes modalSlideIn {
+            to {
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3748;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .modal-title {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            color: white;
+            z-index: 5;
+        }
+
+        .modal-title h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .modal-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .modal-body h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 2rem 0 1rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlights {
+            background: #f7fafc;
+            border-left: 4px solid #3182ce;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .highlights h5 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlights li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+
+        .highlights li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38a169;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-stats {
+                gap: 1.5rem;
+            }
+
+            .tours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                max-height: 90vh;
+            }
+
+            .modal-header {
+                height: 250px;
+            }
+
+            .modal-title h3 {
+                font-size: 1.8rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Экскурсии по Огненной Земле</h1>
+            <p>Откройте для себя магию самого южного края планеты вместе с опытными гидами MAGELLANIA Travel</p>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Уникальных маршрутов</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Довольных путешественников</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Поддержка на русском</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-title">
+            <h2>Выберите свое приключение</h2>
+            <p>От спокойных прогулок по историческому центру до экстремальных треккингов в Андах — найдите идеальную экскурсию для незабываемых впечатлений на краю света</p>
+        </div>
+
+        <!-- Tours Grid -->
+        <div class="tours-grid">
+            <!-- Городские экскурсии -->
+            <div class="tour-card" data-modal="city-tours">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Обзорные</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Городские экскурсии и активности</h3>
+                    <p class="tour-description">Откройте для себя очарование Ушуайи — самого южного города мира. Пешеходные экскурсии по историческому центру, видовые площадки и незабываемые пикники.</p>
+                    <div class="tour-features">
+                        <span class="feature">Пешеходные маршруты</span>
+                        <span class="feature">Ледник Марсиаль</span>
+                        <span class="feature">Видовые площадки</span>
+                        <span class="feature">Гастрономия</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">2,5-4 часа</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Национальный парк -->
+            <div class="tour-card" data-modal="national-park">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Природа</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Национальный парк "Огненная Земля"</h3>
+                    <p class="tour-description">Единственный морской национальный парк Аргентины. Девственные леса, торфяные болота и легендарный поезд "Конца света" по следам заключенных прошлого века.</p>
+                    <div class="tour-features">
+                        <span class="feature">Поезд "Конца света"</span>
+                        <span class="feature">Треккинг тропы</span>
+                        <span class="feature">Дайвинг</span>
+                        <span class="feature">Экология</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">4-6 часов</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Морские экскурсии -->
+            <div class="tour-card" data-modal="marine-tours">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Морские</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Морские экскурсии и круизы</h3>
+                    <p class="tour-description">Путешествие по проливу Бигль к колониям пингвинов и морских львов. Посещение легендарного маяка и рыбалка на краба в сезон.</p>
+                    <div class="tour-features">
+                        <span class="feature">Канал Бигль</span>
+                        <span class="feature">Пингвины</span>
+                        <span class="feature">Морские львы</span>
+                        <span class="feature">Рыбалка</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">3-5 часов</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Треккинг -->
+            <div class="tour-card" data-modal="trekking">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Активный</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Активный отдых и треккинг</h3>
+                    <p class="tour-description">Пешие походы по горным тропам Огненной Земли с ночевкой в палатках. От однодневных маршрутов к лагуне Эсмеральда до многодневных экспедиций.</p>
+                    <div class="tour-features">
+                        <span class="feature">Лагуна Эсмеральда</span>
+                        <span class="feature">Ледник Альбино</span>
+                        <span class="feature">Кемпинг</span>
+                        <span class="feature">Горные виды</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">1-2 дня</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Озера 4x4 -->
+            <div class="tour-card" data-modal="lakes-4x4">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Внедорожные</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Экскурсии к озерам 4x4</h3>
+                    <p class="tour-description">Внедорожные приключения к скрытым горным озерам с кристально чистой водой. Каякинг среди заснеженных пиков и рыбалка на форель.</p>
+                    <div class="tour-features">
+                        <span class="feature">Горные озера</span>
+                        <span class="feature">Каякинг</span>
+                        <span class="feature">4x4 маршруты</span>
+                        <span class="feature">Рыбалка</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">Полный день</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Воздушные экскурсии -->
+            <div class="tour-card" data-modal="aerial-tours">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1544717684-6fb2b03b0846?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Авиация</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Воздушные экскурсии</h3>
+                    <p class="tour-description">Панорамные полеты над Огненной Землей на вертолетах и легкомоторных самолетах. Уникальные виды на канал Бигль и бескрайние леса.</p>
+                    <div class="tour-features">
+                        <span class="feature">Вертолеты</span>
+                        <span class="feature">Панорамы</span>
+                        <span class="feature">Аэрофото</span>
+                        <span class="feature">Трансферы</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">15-60 минут</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Экскурсии с размещением -->
+            <div class="tour-card" data-modal="accommodation-tours">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1501436513145-30f24e19fcc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Размещение</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Экскурсии с размещением</h3>
+                    <p class="tour-description">Многодневные программы с ночевкой в аутентичных гостевых домах и исторических ранчо. Погружение в жизнь патагонских фермеров.</p>
+                    <div class="tour-features">
+                        <span class="feature">Ранчо</span>
+                        <span class="feature">Гостевые дома</span>
+                        <span class="feature">Горячие чаны</span>
+                        <span class="feature">Традиции</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">2-4 дня</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Гастрономические программы -->
+            <div class="tour-card" data-modal="gastronomy">
+                <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="tour-tag">Гастрономия</div>
+                </div>
+                <div class="tour-content">
+                    <h3 class="tour-title">Гастрономические программы</h3>
+                    <p class="tour-description">Авторские ужины с патагонскими продуктами и винные дегустации в формате chef's table. Свежие морепродукты и уникальные растения.</p>
+                    <div class="tour-features">
+                        <span class="feature">Chef's table</span>
+                        <span class="feature">Винные дегустации</span>
+                        <span class="feature">Морепродукты</span>
+                        <span class="feature">Местная кухня</span>
+                    </div>
+                    <div class="tour-footer">
+                        <span class="tour-duration">3-4 часа</span>
+                        <a href="#" class="tour-cta">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>MAGELLANIA Travel</h3>
+            <p>Индивидуальные путешествия по Огненной Земле</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>magellania.travel@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+54 9 11 2744-0161</span>
+                </div>
+                <div class="contact-item">
+                    <span>🌍</span>
+                    <span>www.magellania.travel</span>
+                </div>
+            </div>
+            <p style="opacity: 0.6; font-size: 0.9rem;">© 2025 MAGELLANIA Travel Company. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    
+    <!-- City Tours Modal -->
+    <div id="city-tours" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Городские экскурсии и активности</h3>
+                    <p>Откройте очарование самого южного города планеты</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ушуайя</strong> — это не просто город на карте, это врата в другой мир. Расположенный на берегу канала Бигль в окружении заснеженных пиков Анд, он предлагает уникальное сочетание городской культуры и дикой патагонской природы.</p>
+                
+                <h4>🏛️ Обзорная экскурсия по городу</h4>
+                <p>Пешеходная прогулка по историческому центру длительностью 2,5 часа раскроет перед вами историю города-тюрьмы, ставшего туристической столицей. Вы увидите здание бывшей тюрьмы, превращенной в Морской музей, прогуляетесь по набережной с видами на канал Бигль и узнаете истории первых поселенцев.</p>
+
+                <h4>🏔️ Ледник Марсиаль</h4>
+                <p>Всего в нескольких километрах от города находится ледник Марсиаль — доступная всем точка для знакомства с андскими ледниками. Комбинированная экскурсия сочетает городскую прогулку с поездкой к леднику и занимает 4 часа. С видовых площадок открываются панорамы на Ушуайю и канал Бигль.</p>
+
+                <div class="highlights">
+                    <h5>🍽️ Гастрономические впечатления</h5>
+                    <ul>
+                        <li><strong>Видовой пикник Лайт</strong> — легкий перекус на природе с видами на канал</li>
+                        <li><strong>Видовой пикник Премиум</strong> — полноценный пикник с патагонскими деликатесами</li>
+                        <li><strong>Видовые СПА</strong> — релаксация в горячих источниках с панорамами</li>
+                    </ul>
+                </div>
+
+                <h4>🎯 Особенности наших городских туров</h4>
+                <p>Все экскурсии проводятся русскоговорящими гидами, которые не только покажут достопримечательности, но и поделятся личными историями жизни в самом южном городе мира. Мы адаптируем маршруты под ваши интересы и физические возможности.</p>
+
+                <div class="highlights">
+                    <h5>В стоимость входит:</h5>
+                    <ul>
+                        <li>Услуги сертифицированного русскоговорящего гида</li>
+                        <li>Транспорт для комбинированных туров</li>
+                        <li>Входные билеты в музеи (по программе)</li>
+                        <li>Дегустации местных продуктов</li>
+                        <li>Фотосопровождение</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- National Park Modal -->
+    <div id="national-park" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Национальный парк "Огненная Земля"</h3>
+                    <p>Единственный морской национальный парк Аргентины</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Национальный парк Огненная Земля</strong> — это 63 000 гектаров нетронутой субантарктической природы, где заканчивается Панамериканское шоссе и начинается настоящий край света. Созданный в 1960 году для защиты уникальных магеллановых лесов, парк предлагает незабываемые встречи с дикой природой.</p>
+                
+                <h4>🚂 Легендарный поезд "Конца света"</h4>
+                <p><strong>Tren del Fin del Mundo</strong> — это не просто туристический аттракцион, а живая история. По тем же рельсам, где 100 лет назад перевозили заключенных на лесозаготовки, теперь курсирует восстановленный паровоз. Часовое путешествие через леса и болота сопровождается рассказами о суровой истории этих мест.</p>
+
+                <div class="highlights">
+                    <h5>🚂 Варианты поездки на поезде:</h5>
+                    <ul>
+                        <li><strong>Обычный билет</strong> — стандартные вагоны с панорамными окнами</li>
+                        <li><strong>Премиум класс</strong> — комфортабельные кресла и сервис на борту</li>
+                        <li><strong>Детские билеты</strong> — специальные тарифы для юных путешественников</li>
+                    </ul>
+                </div>
+
+                <h4>🥾 Треккинг маршруты</h4>
+                <p>Парк предлагает маршруты для любого уровня подготовки — от легких прогулок по побережью до сложных походов к горным озерам. Самый популярный маршрут ведет к озеру Роча и заливу Лапатайя, где формально заканчивается дорога № 3 — самая длинная в Южной Америке.</p>
+
+                <h4>🏊‍♂️ Дайвинг в водах Бигль</h4>
+                <p>Для опытных дайверов предлагаем погружение с аквалангом в холодные воды канала Бигль. Подводный мир субантарктики удивительно богат — гигантские водоросли, морские звезды и уникальная фауна, адаптированная к суровому климату.</p>
+
+                <div class="highlights">
+                    <h5>🌿 Что можно увидеть в парке:</h5>
+                    <ul>
+                        <li><strong>Флора:</strong> магеллановы буки, южные березы, мхи и лишайники</li>
+                        <li><strong>Фауна:</strong> гуанако, серые лисицы, кондоры, различные виды уток</li>
+                        <li><strong>Ландшафты:</strong> торфяные болота, горные озера, морские заливы</li>
+                        <li><strong>История:</strong> остатки поселений яганов, старые мосты</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marine Tours Modal -->
+    <div id="marine-tours" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Морские экскурсии и круизы</h3>
+                    <p>Путешествие по легендарному каналу Бигль</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Канал Бигль</strong> — это не просто морской пролив, а историческая артерия, по которой проходили великие исследователи прошлого, включая Чарльза Дарвина. Сегодня эти воды предлагают встречи с удивительной морской фауной и захватывающие пейзажи субантарктической природы.</p>
+                
+                <h4>🐧 Остров пингвинов Мартилло</h4>
+                <p>Главная жемчужина морских экскурсий — остров Мартилло, где обитают колонии <strong>магеллановых пингвинов</strong> и редких <strong>пингвинов генту</strong>. С октября по март остров превращается в настоящий "пингвиний город" — здесь можно наблюдать за семейной жизнью этих удивительных птиц с расстояния вытянутой руки.</p>
+
+                <div class="highlights">
+                    <h5>🦭 Морская фауна канала Бигль:</h5>
+                    <ul>
+                        <li><strong>Морские львы</strong> — на острове Лобос, крупные лежбища</li>
+                        <li><strong>Морские котики</strong> — игривые колонии на скалистых берегах</li>
+                        <li><strong>Бакланы</strong> — на Птичьем острове, тысячи гнездящихся пар</li>
+                        <li><strong>Альбатросы</strong> — величественные морские птицы</li>
+                        <li><strong>Дельфины</strong> — иногда сопровождают катамараны</li>
+                    </ul>
+                </div>
+
+                <h4>🏮 Маяк Les Eclaireurs</h4>
+                <p>Символ Ушуайи — маяк Les Eclaireurs (Разъяснители), построенный в 1920 году на небольшом скалистом островке. Этот красно-белый маяк стал настоящей визитной карточкой края света и фигурирует на всех открытках города.</p>
+
+                <h4>🏡 Историческое ранчо Харбертон</h4>
+                <p><strong>Estancia Harberton</strong> — старейшая ферма на Огненной Земле, основанная в 1886 году миссионером Томасом Бриджесом. Сегодня это музей под открытым небом, где можно познакомиться с историей первых поселенцев и увидеть коллекцию скелетов морских млекопитающих.</p>
+
+                <div class="highlights">
+                    <h5>🦀 Рыбалка и морепродукты:</h5>
+                    <ul>
+                        <li><strong>Королевский краб</strong> — сезонная ловля с ноября по март</li>
+                        <li><strong>Морская форель</strong> — круглогодично в защищенных бухтах</li>
+                        <li><strong>Мидии и устрицы</strong> — сбор на приливных участках</li>
+                        <li><strong>Свежий улов</strong> — обед в рыбацкой деревне</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trekking Modal -->
+    <div id="trekking" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Активный отдых и треккинг</h3>
+                    <p>Пешие походы по тропам Огненной Земли</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Огненная Земля</strong> предлагает одни из самых живописных треккинг маршрутов в Южной Америке. От легких прогулок по лесным тропам до сложных восхождений на ледники — здесь найдется маршрут для любого уровня подготовки.</p>
+                
+                <h4>💎 Лагуна Эсмеральда</h4>
+                <p>Самый популярный однодневный маршрут ведет к <strong>лагуне Эсмеральда</strong> — горному озеру с водой изумрудного цвета, окруженному торфяными болотами и лесом. 4-километровый путь проходит через разнообразные ландшафты и заканчивается у подножия ледника с панорамным видом на долину Карбахал.</p>
+
+                <h4>🧊 Треккинг к леднику Альбино</h4>
+                <p>Для опытных туристов предлагаем восхождение к <strong>леднику Альбино</strong> — техничный маршрут длительностью 8-10 часов. Подъем на высоту 650 метров над уровнем моря вознаграждается невероятными видами на ледниковые поля и возможностью пройти по самому леднику в сопровождении альпинистского гида.</p>
+
+                <div class="highlights">
+                    <h5>🏔️ Популярные треккинг маршруты:</h5>
+                    <ul>
+                        <li><strong>Лагуна Эсмеральда</strong> — 8 км, 4-6 часов, легкий уровень</li>
+                        <li><strong>Серро Гуанако</strong> — 12 км, 6-8 часов, средний уровень</li>
+                        <li><strong>Ледник Альбино</strong> — 15 км, 8-10 часов, сложный уровень</li>
+                        <li><strong>Озеро Роча</strong> — 10 км, 5-7 часов, средний уровень</li>
+                    </ul>
+                </div>
+
+                <h4>🏕️ Многодневные походы</h4>
+                <p>Двухдневный треккинг с ночевкой в палатках — это полное погружение в дикую природу Огненной Земли. В программу входит установка лагеря в живописной долине, приготовление пищи на костре, наблюдение за звездным небом южного полушария и восход солнца в горах.</p>
+
+                <div class="highlights">
+                    <h5>🎒 Включено в многодневные походы:</h5>
+                    <ul>
+                        <li><strong>Полное снаряжение:</strong> палатки, спальники, коврики</li>
+                        <li><strong>Питание:</strong> ланч-боксы, горячий ужин и завтрак</li>
+                        <li><strong>Сопровождение:</strong> сертифицированный горный гид</li>
+                        <li><strong>Безопасность:</strong> спутниковая связь, аптечка, страховка</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lakes 4x4 Modal -->
+    <div id="lakes-4x4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Экскурсии к озерам 4x4</h3>
+                    <p>Внедорожные приключения к скрытым горным жемчужинам</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>За пределами Ушуайи, в глубине Анд, скрываются десятки <strong>кристально чистых горных озер</strong>, добраться до которых можно только на внедорожниках. Эти экскурсии сочетают адреналин off-road вождения с созерцанием первозданной красоты патагонских ландшафтов.</p>
+                
+                <h4>🏔️ Горные озера Огненной Земли</h4>
+                <p>Каждое озеро уникально — одни окружены лесами южных буков, другие лежат среди каменистых склонов. Вода в них настолько прозрачная, что на глубине 10 метров видно дно. Цвет воды меняется от бирюзового до глубокого синего в зависимости от освещения и времени года.</p>
+
+                <div class="highlights">
+                    <h5>🚗 Внедорожные маршруты:</h5>
+                    <ul>
+                        <li><strong>Озеро Фаньяно</strong> — крупнейшее озеро острова, 100 км длиной</li>
+                        <li><strong>Озеро Эскондидо</strong> — "скрытое озеро" в горной долине</li>
+                        <li><strong>Лагуна дель Диабло</strong> — высокогорное озеро на высоте 800 м</li>
+                        <li><strong>Озеро Хеами</strong> — идеальное для рыбалки на форель</li>
+                    </ul>
+                </div>
+
+                <h4>🛶 Каякинг среди гор</h4>
+                <p><strong>Каякинг на горных озерах</strong> — это медитативное путешествие в тишине, нарушаемой только плеском весел и криками птиц. Отражения заснеженных пиков в неподвижной воде создают сюрреалистические пейзажи, которые невозможно забыть.</p>
+
+                <h4>🎣 Рыбалка на форель</h4>
+                <p>Горные озера Огненной Земли славятся популяциями <strong>радужной</strong> и <strong>коричневой форели</strong>. Рыбалка ведется как с берега, так и с лодки. Все необходимое снаряжение предоставляется, а пойманную рыбу можно приготовить на костре прямо на берегу озера.</p>
+
+                <div class="highlights">
+                    <h5>🌅 Программа экскурсий к озерам:</h5>
+                    <ul>
+                        <li><strong>Утро:</strong> выезд из Ушуайи на внедорожниках 4x4</li>
+                        <li><strong>Дорога:</strong> проезд через горные перевалы (1,5-2 часа)</li>
+                        <li><strong>Озеро:</strong> каякинг, рыбалка или отдых на берегу</li>
+                        <li><strong>Обед:</strong> пикник с видом на горы или барбекю</li>
+                        <li><strong>Возвращение:</strong> через другие живописные маршруты</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aerial Tours Modal -->
+    <div id="aerial-tours" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1544717684-6fb2b03b0846?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Воздушные экскурсии</h3>
+                    <p>Огненная Земля с высоты птичьего полета</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Полеты над <strong>Огненной Землей</strong> открывают совершенно новую перспективу этого удивительного региона. С высоты становится видна истинная масштабность ландшафтов — бескрайние леса, изрезанная береговая линия, горные цепи и ледники, недоступные с земли.</p>
+                
+                <h4>🚁 Вертолетные туры</h4>
+                <p><strong>Вертолетные экскурсии</strong> — самый захватывающий способ увидеть Огненную Землю. Возможность зависать над интересными объектами и летать на низкой высоте делает вертолет идеальным средством для aerial-photography и детального изучения ландшафтов.</p>
+
+                <div class="highlights">
+                    <h5>🚁 Программы вертолетных туров:</h5>
+                    <ul>
+                        <li><strong>15 минут</strong> — обзорный полет над Ушуайей и каналом Бигль</li>
+                        <li><strong>30 минут</strong> — расширенная программа с ледниками</li>
+                        <li><strong>45 минут</strong> — полет к горным озерам и национальному парку</li>
+                        <li><strong>60 минут</strong> — grand tour с посадкой в горах</li>
+                    </ul>
+                </div>
+
+                <h4>✈️ Легкомоторная авиация</h4>
+                <p><strong>Самолеты Cessna</strong> предлагают более длительные полеты на большей высоте. 30-минутный или часовой полет позволяет увидеть огромные территории — от канала Бигль до горных хребтов Анд, от ледниковых полей до океанского побережья.</p>
+
+                <h4>🏔️ Что видно с воздуха</h4>
+                <p>С высоты открываются виды, недоступные с земли: <strong>ледниковые поля</strong> Дарвин, <strong>фьорды</strong> западного побережья, <strong>лабиринт каналов</strong> между островами. Особенно впечатляет вид на место слияния Тихого и Атлантического океанов.</p>
+
+                <div class="highlights">
+                    <h5>📸 Лучшие виды для фотографии:</h5>
+                    <ul>
+                        <li><strong>Канал Бигль</strong> — панорама водного пространства между островами</li>
+                        <li><strong>Ушуайя</strong> — город на фоне заснеженных Анд</li>
+                        <li><strong>Национальный парк</strong> — мозаика лесов, озер и болот</li>
+                        <li><strong>Ледники</strong> — ледяные поля и трещины</li>
+                        <li><strong>Океанское побережье</strong> — бесконечные пляжи и утесы</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accommodation Tours Modal -->
+    <div id="accommodation-tours" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1501436513145-30f24e19fcc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Экскурсии с размещением</h3>
+                    <p>Многодневные программы с погружением в местную культуру</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Многодневные программы с размещением в <strong>аутентичных гостевых домах</strong> и <strong>исторических ранчо</strong> — это возможность не просто увидеть Огненную Землю, а прочувствовать ритм жизни на краю света, познакомиться с местными традициями и узнать истории семей, которые живут здесь поколениями.</p>
+                
+                <h4>🏡 Гостевые дома</h4>
+                <p><strong>Семейные гостевые дома</strong> — это теплая атмосфера патагонского гостеприимства. Хозяева делятся историями своих семей, показывают, как выживать в суровом климате, готовят традиционные блюда из местных продуктов. Размещение в уютных комнатах с видами на горы или океан.</p>
+
+                <div class="highlights">
+                    <h5>🏠 Типы размещения:</h5>
+                    <ul>
+                        <li><strong>Семейные гостевые дома</strong> — до 6 человек, домашняя атмосфера</li>
+                        <li><strong>Эко-лоджи</strong> — экологичные домики в природе</li>
+                        <li><strong>Историческое ранчо</strong> — аутентичная фермерская жизнь</li>
+                        <li><strong>Горные кабины</strong> — уединение среди ледников</li>
+                    </ul>
+                </div>
+
+                <h4>🐎 Ранчо Харбертон</h4>
+                <p><strong>Estancia Harberton</strong> — это живой музей истории Огненной Земли. Основанное в 1886 году миссионером Томасом Бриджесом, ранчо до сих пор принадлежит его потомкам. Ночевка здесь — это путешествие во времени, знакомство с историей освоения края и традициями скотоводства.</p>
+
+                <h4>♨️ Горячие чаны под звездами</h4>
+                <p><strong>Hot springs</strong> — природные и рукотворные горячие источники, где можно согреться после дня, проведенного на холодном ветру. Особенно магично принимать горячие ванны под звездным небом южного полушария, где созвездия кажутся перевернутыми.</p>
+
+                <div class="highlights">
+                    <h5>🍯 Местные продукты:</h5>
+                    <ul>
+                        <li><strong>Мед из цветов чаги</strong> — уникальный патагонский деликатес</li>
+                        <li><strong>Варенье из calafate</strong> — ягода счастья и возвращения</li>
+                        <li><strong>Копченое мясо гуанако</strong> — традиционный способ заготовки</li>
+                        <li><strong>Травяные чаи</strong> — из местных лекарственных растений</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gastronomy Modal -->
+    <div id="gastronomy" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                <button class="modal-close">×</button>
+                <div class="modal-title">
+                    <h3>Гастрономические программы</h3>
+                    <p>Авторская кухня из продуктов Огненной Земли</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Гастрономия Огненной Земли</strong> — это уникальное сочетание морепродуктов канала Бигль, мяса патагонских животных и дикорастущих растений субантарктической флоры. Авторские ужины от лучших шеф-поваров региона превращают местные ингредиенты в кулинарные шедевры мирового уровня.</p>
+                
+                <h4>👨‍🍳 Chef's Table Experience</h4>
+                <p><strong>Формат Chef's Table</strong> — это интимная атмосфера для небольшой группы (от 4 человек), где шеф-повар лично представляет каждое блюдо, рассказывает об ингредиентах и методах приготовления. Ужин длится 3-4 часа и включает 7-9 блюд с винным сопровождением.</p>
+
+                <div class="highlights">
+                    <h5>🦀 Морепродукты канала Бигль:</h5>
+                    <ul>
+                        <li><strong>Королевский краб (centolla)</strong> — деликатес размером с подушку</li>
+                        <li><strong>Морские ежи</strong> — собираются на литорали во время отлива</li>
+                        <li><strong>Мидии и устрицы</strong> — выращиваются на морских фермах</li>
+                        <li><strong>Sea bass</strong> — благородная рыба холодных вод</li>
+                        <li><strong>Морская форель</strong> — уникальная анадромная форма</li>
+                    </ul>
+                </div>
+
+                <h4>🍖 Патагонские деликатесы</h4>
+                <p><strong>Мясо гуанако</strong> — дикая альпака, которую издавна использовали в пищу коренные народы. Его мясо напоминает оленину, но более нежное. <strong>Баранина мериноса</strong> с патагонских ферм имеет особый вкус благодаря местным травам, которыми питаются животные.</p>
+
+                <h4>🌿 Дикорастущие растения</h4>
+                <p>Шеф-повара собирают <strong>chaura</strong> (местную клюкву), <strong>calafate</strong> (патагонскую чернику), <strong>дикий сельдерей</strong>, <strong>морскую спаржу</strong> и другие растения, которые растут только в этом регионе. Из них делают соусы, гарниры и десерты с уникальным вкусом.</p>
+
+                <div class="highlights">
+                    <h5>🍷 Винное сопровождение:</h5>
+                    <ul>
+                        <li><strong>Аргентинские вина</strong> — лучшие образцы из Мендосы и Сальты</li>
+                        <li><strong>Чилийские вина</strong> — элитные сорта из долины Кольчагуа</li>
+                        <li><strong>Патагонские напитки</strong> — локальные ликеры и настойки</li>
+                        <li><strong>Крафтовое пиво</strong> — местные микропивоварни</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modalTriggers = document.querySelectorAll('[data-modal]');
+        const modals = document.querySelectorAll('.modal');
+        const modalCloses = document.querySelectorAll('.modal-close');
+
+        // Open modal
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = trigger.dataset.modal;
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        modalCloses.forEach(close => {
+            close.addEventListener('click', () => {
+                modals.forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close modal on backdrop click
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
